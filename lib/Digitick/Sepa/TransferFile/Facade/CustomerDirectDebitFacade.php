@@ -68,6 +68,9 @@ class CustomerDirectDebitFacade extends BaseCustomerTransferFileFacade
         } else {
             $payment->setDueDate(new \DateTime(date('Y-m-d', strtotime('now + 5 days'))));
         }
+        if (isset($paymentInformation['batchBooking'])) {
+            $payment->setBatchBooking($paymentInformation['batchBooking']);
+        }
 
         $this->payments[$paymentName] = $payment;
     }

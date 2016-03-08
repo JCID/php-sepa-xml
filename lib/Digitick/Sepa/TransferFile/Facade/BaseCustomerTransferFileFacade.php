@@ -53,6 +53,26 @@ abstract class BaseCustomerTransferFileFacade implements CustomerTransferFileFac
     }
 
     /**
+     * @param string $paymentName
+     *
+     * @return PaymentInformation
+     */
+    public function hasPayment($paymentName)
+    {
+        return isset($this->payments[$paymentName]);
+    }
+
+    /**
+     * @param string $paymentName
+     *
+     * @return PaymentInformation
+     */
+    public function getPayment($paymentName)
+    {
+        return $this->payments[$paymentName];
+    }
+
+    /**
      * @return string
      */
     public function asXML()
